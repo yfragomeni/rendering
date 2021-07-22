@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Render</title>
+</head>
+
+<body>
+    <main class="screen">
+    </main>
+</body>
+
+</html>
+<script>
+    // [Data]
+    const accounts = [{
+            name: 'yfragomeni',
+            followers: 0,
+        },
+        {
+            name: 'smol.posts',
+            followers: 0,
+        },
+        {
+            name: 'cubmoth',
+            followers: 0,
+        },
+    ]
+
+
+    function buttonTemplate(account) {
+        return `
+        <div class="account">
+        <h1>${account.name}</h1>
+        <button onclick="handleFollow('${account.name}')"><img src="person-plus.svg"/></button>
+        <p>${account.followers} followers</p>
+        </div>
+        `
+
+    }
+
+    function handleFollow(accountName) {
+        accounts.forEach((currentAccount) => {
+            if (accountName === currentAccount.name) {
+                currentAccount.followers += 1;
+            }
+        })
+        render();
+    }
+
+    // [Render Logic]
+    function render() {
+        const $screen = document.querySelector('.screen');
+        $screen.innerHTML = accounts.map((account) => {
+            return buttonTemplate(account)
+        }).join("");
+    };
+    render();
+</script>

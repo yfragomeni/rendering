@@ -1,0 +1,21 @@
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+}
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 1vw;
+}
+
+img {
+    height: 1.5vw;
+}
